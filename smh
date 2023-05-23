@@ -1,0 +1,26 @@
+--[[
+Support Game:
+- SLAP BATTLE
+- BOOM CLICK MINE
+- CART RIDE INTO RDITE
+- LUCKY BLOCKS BATTLEGROUNDS
+- LONGEST ANSWER WINS
+]]
+
+local gameid = game.PlaceId
+
+if gameid == 6403373529 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/slap%20battle")))();
+end
+if gameid == 12941479903 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Boom%20click%20mine")))();
+end
+if gameid == 4913581664 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Cart%20Ride%20into%20Rdite")))();
+end
+if gameid == 662417684 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/LUCKY%20BLOCKS%20Battlegrounds")))();
+end
+if gameid == 4162410081 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Longest%20Answer%20Wins")))();
+end
