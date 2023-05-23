@@ -1,0 +1,327 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Cart NUKE", "GrapeTheme")
+local NUKE = Window:NewTab("NUKE")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local NUKE = NUKE:NewSection("NUKE")
+local SettingSection = SettingsTab:NewSection("Change Settings")
+local CreditsSection = CreditsTab:NewSection("Developers || Mds")
+
+NUKE:NewTextBox("Auto Mine", "1-9", function(txt)
+getgenv().digg = true
+function dig(num)
+while wait(0.001) do
+if digg then
+local args = {
+    [1] = num,
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 2
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 3
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 4
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 5
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 6
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 7
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 8
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 9
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 10
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 11
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+local args = {
+    [1] = num,
+    [2] = 12
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("HitBlock"):FireServer(unpack(args))
+else
+return
+end
+end
+end
+dig(tonumber(txt))
+end)
+
+NUKE:NewButton("stop auto Mine", "stop auto", function()
+getgenv().digg = false
+end)
+
+NUKE:NewTextBox("Auto Train", "1-9 (WORK WITH THE MAP YOU ALREADY BUY)", function(txt)
+getgenv().trains = true
+function train(num1)
+while wait(0.01) do
+    if trains then
+local args = {
+    [1] = num1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("AddTrain"):FireServer(unpack(args))
+else
+return
+end
+end
+end
+train(tonumber(txt))
+end)
+
+NUKE:NewButton("stop auto Train", "stop auto", function()
+getgenv().trains = false
+end)
+
+NUKE:NewTextBox("1 Egg open", "1-18", function(txt)
+function egg(num3)
+local args = {
+    [1] = num3,
+    [2] = "Open1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Hatch"):WaitForChild("EggHatch"):InvokeServer(unpack(args))
+end
+egg(tonumber(txt))
+end)
+
+NUKE:NewTextBox("3 Egg open", "1-18", function(txt)
+function eggs(num2)
+local args = {
+    [1] = num2,
+    [2] = "Open3",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Hatch"):WaitForChild("EggHatch"):InvokeServer(unpack(args))
+end
+eggs(tonumber(txt))
+end)
+
+NUKE:NewToggle("auto fuse", "auto fuse", function(state)
+if state then
+getgenv().fuse = true
+else
+getgenv().fuse = false
+end
+while wait(0.01) do
+if fuse then
+local args = {
+    [1] = 1
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 2
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 3
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 4
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 5
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 6
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 7
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 8
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 9
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 10
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 11
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 12
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 13
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 14
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 15
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 16
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 17
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 18
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 19
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 20
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 21
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 22
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 23
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 24
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 25
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 26
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 27
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 28
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 29
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+local args = {
+    [1] = 30
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Pet"):WaitForChild("PetCraft"):InvokeServer(unpack(args))
+else
+return
+end
+end
+end)
+NUKE:NewButton("day reward", "Claim all without wait 1h30m", function()
+local args = {
+    [1] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Online"):WaitForChild("TryGetOnlineGift"):InvokeServer(unpack(args))
+local args = {
+    [1] = 2
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Online"):WaitForChild("TryGetOnlineGift"):InvokeServer(unpack(args))
+local args = {
+    [1] = 3
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Online"):WaitForChild("TryGetOnlineGift"):InvokeServer(unpack(args))
+local args = {
+    [1] = 4
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Online"):WaitForChild("TryGetOnlineGift"):InvokeServer(unpack(args))
+local args = {
+    [1] = 5
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Online"):WaitForChild("TryGetOnlineGift"):InvokeServer(unpack(args))
+local args = {
+    [1] = 6
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Online"):WaitForChild("TryGetOnlineGift"):InvokeServer(unpack(args))
+local args = {
+    [1] = 7
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Online"):WaitForChild("TryGetOnlineGift"):InvokeServer(unpack(args))
+local args = {
+    [1] = 8
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Online"):WaitForChild("TryGetOnlineGift"):InvokeServer(unpack(args))
+end)
+NUKE:NewTextBox("Map tp", "1-9", function(txt)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Mine[txt].Block["1"].CFrame + Vector3.new(0, 15, 0)
+end)
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
