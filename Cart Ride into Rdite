@@ -1,0 +1,72 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Cart NUKE", "GrapeTheme")
+local NUKE = Window:NewTab("NUKE")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local NUKE = NUKE:NewSection("NUKE")
+local SettingSection = SettingsTab:NewSection("Change Settings")
+local CreditsSection = CreditsTab:NewSection("Developers || Mds")
+
+NUKE:NewToggle("auto Nuke cart", "auto spawn cart", function(state)
+    if state then
+       _G.b = true
+    else
+        _G.b = false
+    end
+    
+while wait(0.01) do
+if _G.b == true then  
+for i,v in pairs(game.Workspace:GetDescendants()) do
+if v.Name == "Click" then
+fireclickdetector(v)
+end
+end
+end
+end
+end)
+
+NUKE:NewToggle("auto spawn cart", "auto spawn cart", function(state1)
+    if state1 then
+       _G.a = true
+    else
+        _G.a = false
+    end
+
+while wait(0.01) do
+if _G.a == true then     
+fireclickdetector(game:GetService("Workspace").Carts["4Regen"].Click)
+fireclickdetector(game:GetService("Workspace").Carts["2Regen"].Click)
+fireclickdetector(game:GetService("Workspace").Carts["1Regen"].Click)
+end
+end
+end)
+
+NUKE:NewButton("On/off all cart", "On/off all cart", function()
+for i,v in pairs(game.Workspace:GetDescendants()) do
+if v.Name == "On" then
+fireclickdetector(v.Click)
+end
+end
+end)
+
+NUKE:NewButton("Up all cart", "Up all cart", function()
+for i,v in pairs(game.Workspace:GetDescendants()) do
+if v.Name == "Up" then
+fireclickdetector(v.Click)
+end
+end
+end)
+
+NUKE:NewButton("Down all cart", "Down all cart", function()
+for i,v in pairs(game.Workspace:GetDescendants()) do
+if v.Name == "Down" then
+fireclickdetector(v.Click)
+end
+end
+end)
+
+
+
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.Z, function()
+	Library:ToggleUI()
+end)
