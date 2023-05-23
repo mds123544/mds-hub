@@ -117,7 +117,27 @@ end)
 NUKE:NewButton("stop auto Train", "stop auto", function()
 getgenv().trains = false
 end)
+NUKE:NewTextBox("Auto win", "need insta mine block first", function(txt)
+getgenv().wins = true
+function win(num4)
+while wait(0.1) do
+    if wins then
+local args = {
+    [1] = num4
+}
 
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Mine"):WaitForChild("CheckIfWin"):FireServer(unpack(args))
+else
+return
+end
+end
+end
+win(tonumber(txt))
+end)
+
+NUKE:NewButton("stop auto win", "stop auto ", function()
+getgenv().wins = false
+end)
 NUKE:NewTextBox("1 Egg open", "1-18", function(txt)
 function egg(num3)
 local args = {
