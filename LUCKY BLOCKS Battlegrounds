@@ -1,0 +1,68 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Lucky Block", "GrapeTheme")
+local NUKE = Window:NewTab("NUKE")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local NUKE = NUKE:NewSection("NUKE")
+local SettingSection = SettingsTab:NewSection("Change Settings")
+local CreditsSection = CreditsTab:NewSection("Developers || Mds")
+
+NUKE:NewToggle("SpawnLuckyBlock", "SpawnLuckyBlock", function(state)
+    if state then
+       _G.a = true
+    else
+        _G.a = false
+    end
+
+while wait(0.001) do
+if _G.a == true then
+game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+end
+end
+end)
+
+NUKE:NewToggle("SpawnSuperBlock", "SpawnSuperBlock", function(state1)
+    if state1 then
+       _G.b = true
+    else
+        _G.b = false
+    end
+    
+while wait(0.001) do
+if _G.b == true then
+game:GetService("ReplicatedStorage").SpawnSuperBlock:FireServer()
+end
+end
+end)
+
+NUKE:NewToggle("SpawnDiamondBlock", "SpawnDiamondBlock", function(state2)
+    if state2 then
+       _G.c = true
+    else
+        _G.c = false
+    end
+
+while wait(0.001) do
+if _G.c == true then
+game:GetService("ReplicatedStorage").SpawnDiamondBlock:FireServer()
+end
+end
+end)
+
+NUKE:NewToggle("SpawnRainbowBlock", "SpawnRainbowBlock", function(state3)
+    if state3 then
+       _G.d = true
+    else
+        _G.d = false
+    end
+
+while wait(0.001) do
+if _G.d == true then
+game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
+end
+end
+end)
+
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
