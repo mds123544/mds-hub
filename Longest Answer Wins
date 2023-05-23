@@ -1,0 +1,41 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("LONGEST ANSWER WINS", "Ocean")
+local GameList = Window:NewTab("Gameplay Section")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local Ingame = GameList:NewSection("ANSWER SECTION")
+local Setting = SettingsTab:NewSection("Settings")
+local Credits = CreditsTab:NewSection("Owner: mds#0243")
+
+answer = Ingame:NewLabel("Answer: ")
+Ingame:NewButton("Put Answer", "Put Answer", function()
+game:GetService("ReplicatedStorage").SubmittedAnswer:FireServer(game:GetService("ReplicatedStorage").HintAnswer.Value, string.len(game:GetService("ReplicatedStorage").HintAnswer.Value))
+end)
+Ingame:NewButton("Copy Answer", "Copy Answer", function()
+setclipboard(string.lower(game:GetService("ReplicatedStorage").HintAnswer.Value))
+end)
+Ingame:NewToggle("Auto Answer", "Auto Answer", function(state)
+if state then
+_G.aa = true
+else
+_G.aa = false
+end
+
+while wait(0.1) do
+if _G.aa == true and game:GetService("ReplicatedStorage").HintAnswer.Value ~= nil then
+local args = {
+    [1] = game:GetService("ReplicatedStorage").HintAnswer.Value,
+    [2] = string.len(game:GetService("ReplicatedStorage").HintAnswer.Value)
+}
+
+game:GetService("ReplicatedStorage").SubmittedAnswer:FireServer(unpack(args))
+end
+end
+end)
+Setting:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F1, function()
+	Library:ToggleUI()
+end)
+
+while wait(0) do 
+answer:UpdateLabel("Answer: "..string.lower(game:GetService("ReplicatedStorage").HintAnswer.Value))
+end
