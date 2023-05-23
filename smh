@@ -21,6 +21,6 @@ end
 if gameid == 662417684 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/LUCKY%20BLOCKS%20Battlegrounds")))();
 end
-if gameid == 4162410081 then
+if gameid == 9992339729 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Longest%20Answer%20Wins")))();
 end
