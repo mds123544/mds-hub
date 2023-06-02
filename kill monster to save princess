@@ -69,8 +69,8 @@ if state then
     getgenv().mob = false
 end
 
-while mob do
-task.wait() 
+while task.wait() do
+if mob and game:GetService("Players").LocalPlayer.stats["Battle Region"].Value == 1 then
 function GetBase()
    return game:GetService("Players").LocalPlayer.stats["Battle Region"].Value
 end
@@ -79,6 +79,7 @@ Enemies = game:GetService("Workspace").Waves:WaitForChild(GetBase()).Enemy:GetCh
        local v = Enemies[i]
            v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame - Vector3.new(0,0,3.5)
     end
+end
 end
 end)
 
