@@ -77,7 +77,7 @@ end
 Enemies = game:GetService("Workspace").Waves:WaitForChild(GetBase()).Enemy:GetChildren()
    for i = 1, #Enemies do
        local v = Enemies[i]
-           v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame - Vector3.new(0,0,5)
+           v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame - Vector3.new(0,0,5.45)
     end
 end
 end
