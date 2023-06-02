@@ -1,0 +1,113 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Kill monster to save princess", "BloodTheme")
+local BasicTab = Window:NewTab("Game")
+local BasicTab2 = Window:NewTab("Credits")
+local MovementSection = BasicTab:NewSection("Game")
+local MovementSection2 = BasicTab2:NewSection("OWNER/TOGGLE KEY")
+
+MovementSection:NewToggle("auto hit", "auto hit", function(state)
+if state then
+    getgenv().hit = true
+    else
+    getgenv().hit = false
+end
+    while task.wait() do
+        if hit then
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Weapon"):WaitForChild("TakeDamage"):FireServer()
+else
+return
+        end
+        end
+        end)
+
+MovementSection:NewToggle("auto join", "auto join", function(state)
+if state then
+    getgenv().join = true
+    else
+    getgenv().join = false
+end
+if join then
+    game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Battle"):WaitForChild("JoinPrepare"):FireServer()
+end
+game.Players.LocalPlayer.CharacterAdded:Connect(function(Character)
+wait(0.2)
+if join then
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Battle"):WaitForChild("JoinPrepare"):FireServer()
+end
+end)
+end)
+
+MovementSection:NewToggle("auto princess hug", "auto princess hug", function(state)
+if state then
+    getgenv().hug = true
+    else
+    getgenv().hug = false
+end
+if hug then
+local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Princess"):WaitForChild("PrincessHug"):FireServer(unpack(args))
+end
+game.Players.LocalPlayer.CharacterAdded:Connect(function(Character)
+wait(1)
+if hug then
+local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Princess"):WaitForChild("PrincessHug"):FireServer(unpack(args))
+end
+end)
+end)
+
+MovementSection:NewToggle("auto tp mob", "auto tp mob", function(state)
+if state then
+    getgenv().mob = true
+    else
+    getgenv().mob = false
+end
+
+while mob do
+task.wait() 
+function GetBase()
+   return game:GetService("Players").LocalPlayer.stats["Battle Region"].Value
+end
+Enemies = game:GetService("Workspace").Waves:WaitForChild(GetBase()).Enemy:GetChildren()
+   for i = 1, #Enemies do
+       local v = Enemies[i]
+           v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame - Vector3.new(0,0,3.5)
+    end
+end
+end)
+
+MovementSection:NewTextBox("1 Egg open", "1-6", function(txt)
+function egg(num3)
+local args = {
+    [1] = num3,
+    [2] = "Open1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Hatch"):WaitForChild("EggHatch"):InvokeServer(unpack(args))
+end
+egg(tonumber(txt))
+end)
+
+MovementSection:NewTextBox("3 Egg open", "1-6", function(txt)
+function eggs(num2)
+local args = {
+    [1] = num2,
+    [2] = "Open3",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Hatch"):WaitForChild("EggHatch"):InvokeServer(unpack(args))
+end
+eggs(tonumber(txt))
+end)
+
+MovementSection2:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+        Library:ToggleUI()
+    end)
