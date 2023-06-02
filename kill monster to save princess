@@ -77,7 +77,9 @@ end
 Enemies = game:GetService("Workspace").Waves:WaitForChild(GetBase()).Enemy:GetChildren()
    for i = 1, #Enemies do
        local v = Enemies[i]
-           v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame - Vector3.new(0,0,5.1)
+       if v:IsA("Model") and v:FindFirstChildOfClass("Humanoid") and v:FindFirstChildOfClass("Humanoid").Health > 0 then
+           v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame - Vector3.new(0, -2, 3.5)
+    end
     end
 end
 end
@@ -88,13 +90,16 @@ if state then
     else
     getgenv().av = false
 end
-while task.wait() do
-    if av then
-game.Players.LocalPlayer.Character.Humanoid.HipHeight = 15
-    end
-    end
+if av then
+    game.Players.LocalPlayer.Character.Humanoid.HipHeight = 28
+end
+game.Players.LocalPlayer.CharacterAdded:Connect(function(Character)
+wait(0.2)
+if av then
+game.Players.LocalPlayer.Character.Humanoid.HipHeight = 28
+end
 end)
-
+end)
 MovementSection:NewTextBox("1 Egg open", "1-6", function(txt)
 function egg(num3)
 local args = {
