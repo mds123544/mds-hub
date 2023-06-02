@@ -77,10 +77,22 @@ end
 Enemies = game:GetService("Workspace").Waves:WaitForChild(GetBase()).Enemy:GetChildren()
    for i = 1, #Enemies do
        local v = Enemies[i]
-           v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame - Vector3.new(0,0,5.5)
+           v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame - Vector3.new(0,0,5)
     end
 end
 end
+end)
+MovementSection:NewToggle("avoid", "avoid", function(state)
+if state then
+    getgenv().av = true
+    else
+    getgenv().av = false
+end
+while task.wait() do
+    if av then
+game.Players.LocalPlayer.Character.Humanoid.HipHeight = 15
+    end
+    end
 end)
 
 MovementSection:NewTextBox("1 Egg open", "1-6", function(txt)
@@ -108,6 +120,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Hatch"
 end
 eggs(tonumber(txt))
 end)
+
 
 MovementSection2:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
         Library:ToggleUI()
