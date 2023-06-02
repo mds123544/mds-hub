@@ -5,6 +5,7 @@ Support Game:
 - CART RIDE INTO RDITE
 - LUCKY BLOCKS BATTLEGROUNDS
 - LONGEST ANSWER WINS  (mega more funn )
+- KILL MONSTER TO SAVE PRINCESS
 ]]
 
 local gameid = game.PlaceId
@@ -23,4 +24,7 @@ if gameid == 662417684 then
 end
 if gameid == 9992339729 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Longest%20Answer%20Wins")))();
+end
+if gameid == 8568266872
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/kill%20monster%20to%20save%20princess")))();
 end
