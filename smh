@@ -25,6 +25,6 @@ end
 if gameid == 9992339729 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Longest%20Answer%20Wins")))();
 end
-if gameid == 8568266872
+if gameid == 8568266872 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/kill%20monster%20to%20save%20princess")))();
 end
