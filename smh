@@ -28,3 +28,6 @@ end
 if gameid == 8568266872 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/kill%20monster%20to%20save%20princess")))();
 end
+if gameid == 12538889612 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/kill%20monster%20to%20save%20princess")))();
+end
