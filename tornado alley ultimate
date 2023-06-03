@@ -1,0 +1,40 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Tornado Alley", "GrapeTheme")
+local gamesec = Window:NewTab("game")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local gamesec = gamesec:NewSection("game")
+local SettingSection = SettingsTab:NewSection("Change Settings")
+local CreditsSection = CreditsTab:NewSection("Developers || Mds")
+
+gamesec:NewButton("tp to key", "tp to key", function()
+for i,v in pairs(workspace:GetDescendants()) do
+if v.Name == "Shelter Key" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+end)
+gamesec:NewButton("tp to shelter", "tp to shelter", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").UndergroundShelter.Entrance.CFrame
+end)
+gamesec:NewSlider("Speed", "Speed", 200, 16, function(s)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+gamesec:NewSlider("high jump", "high jump", 200, 50, function(s)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+answer = gamesec:NewLabel("Tornado:  ")
+
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+while wait(0.1) do
+    for i,v in pairs(game.Workspace:GetDescendants()) do
+        if v.Name == "BodyForce" and v ~= nil then
+            answer:UpdateLabel("Tornado: "..v.Parent.Parent.Name)
+        end
+        end
+        end
+
