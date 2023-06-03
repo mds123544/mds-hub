@@ -6,6 +6,7 @@ Support Game:
 - LUCKY BLOCKS BATTLEGROUNDS
 - LONGEST ANSWER WINS  (mega more funn )
 - KILL MONSTER TO SAVE PRINCESS
+- TORNADO ALLEY ULTIMATE
 ]]
 
 local gameid = game.PlaceId
@@ -30,4 +31,7 @@ if gameid == 8568266872 then
 end
 if gameid == 12538889612 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/kill%20monster%20to%20save%20princess")))();
+end
+if gameid == 2313058949 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tornado%20alley%20ultimate")))();
 end
