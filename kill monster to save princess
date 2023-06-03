@@ -100,6 +100,22 @@ game.Players.LocalPlayer.Character.Humanoid.HipHeight = 28
 end
 end)
 end)
+MovementSection:NewToggle("anti kick", "anti kick", function(state)
+if state then
+    getgenv().ac = true
+    else
+    getgenv().ac = false
+end
+while task.wait() do
+    if ac then
+    for i, v in pairs(game:GetService("Workspace").Waves:GetDescendants()) do
+   if v.Name == "Cheat" then
+       v:Destroy()
+   end
+end
+    end
+    end
+end)
 MovementSection:NewTextBox("1 Egg open", "1-6", function(txt)
 function egg(num3)
 local args = {
