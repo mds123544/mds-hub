@@ -77,6 +77,25 @@ end
 end
 end)
 
+NUKE:NewToggle("auto tp plr", "auto tp plr", function(state)
+    if state then
+       getgenv().f = true
+    else
+       getgenv().f= false
+    end
+
+while task.wait() do
+    if f then
+for i,v in pairs(game.Workspace:GetDescendants()) do
+if v.Name == "HumanoidRootPart" and v.Parent ~= game.Players.LocalPlayer.Character then
+v.CFrame = (game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -9))
+end
+end
+else
+return
+    end
+    end
+    end)
 SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
