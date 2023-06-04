@@ -63,6 +63,20 @@ end
 end
 end)
 
+NUKE:NewToggle("SpawnGalaxyBlock", "SpawnGalaxyBlock", function(state4)
+    if state4 then
+       _G.e = true
+    else
+        _G.e = false
+    end
+
+while wait(0.001) do
+if _G.e == true then
+game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
+end
+end
+end)
+
 SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
