@@ -7,6 +7,7 @@ Support Game:
 - LONGEST ANSWER WINS  (mega more funn )
 - KILL MONSTER TO SAVE PRINCESS
 - TORNADO ALLEY ULTIMATE
+- TOWER OF HELL
 ]]
 
 local gameid = game.PlaceId
@@ -35,3 +36,14 @@ end
 if gameid == 2313058949 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tornado%20alley%20ultimate")))();
 end
+if gameid == 1962086868 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tower%20of%20hell")))();
+end
+if gameid == 3582763398 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tower%20of%20hell")))();
+end
+if gameid == 5253186791 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tower%20of%20hell")))();
+end
+
+
