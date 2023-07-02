@@ -1,0 +1,85 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Tower Of Hell", "GrapeTheme")
+local win = Window:NewTab("game")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local wins = win:NewSection("game")
+local SettingSection = SettingsTab:NewSection("Change Settings")
+local CreditsSection = CreditsTab:NewSection("Developers || Mds")
+
+wins:NewButton("get All FE Item", "get All FE Item", function()
+local plr = game:GetService("Players").LocalPlayer.Backpack
+local bomb = game:GetService("ReplicatedStorage").Gear.bomb:Clone()
+local coca = game:GetService("ReplicatedStorage").Gear.cola:Clone()
+local fusion = game:GetService("ReplicatedStorage").Gear.fusion:Clone()
+local gravity = game:GetService("ReplicatedStorage").Gear.gravity:Clone()
+local hook = game:GetService("ReplicatedStorage").Gear.hook:Clone()
+local hourglass = game:GetService("ReplicatedStorage").Gear.hourglass:Clone()
+local jump = game:GetService("ReplicatedStorage").Gear.jump:Clone()
+local killpart = game:GetService("ReplicatedStorage").Gear.killpart:Clone()
+local speed = game:GetService("ReplicatedStorage").Gear.speed:Clone()
+local trowel = game:GetService("ReplicatedStorage").Gear.trowel:Clone()
+local yxterminator = game:GetService("ReplicatedStorage").Gear.yxterminator:Clone()
+bomb.Parent = plr
+coca.Parent = plr
+fusion.Parent = plr
+gravity.Parent = plr
+hook.Parent = plr
+hourglass.Parent = plr
+jump.Parent = plr
+killpart.Parent = plr
+speed.Parent = plr
+trowel.Parent = plr
+yxterminator.Parent = plr
+end)
+
+wins:NewButton("Invicibility", "Invicibility", function()
+game.Players.LocalPlayer.Character.KillScript:Destroy()
+end)
+
+wins:NewToggle("Auto Tp To Win", "Auto Tp To Win", function(state)
+getgenv().toggle = false
+if state then
+    toggle = true
+    else
+    toggle = false
+end
+
+while wait(0.01) do
+    if toggle then
+        game.Players.LocalPlayer.Character:PivotTo(workspace.tower.finishes.Finish:GetPivot())
+        else
+        return
+    end
+end
+end)
+
+wins:NewToggle("inf jump", "Inf jump", function(state)
+game:GetService("UserInputService").InputBegan:Connect(function(i)
+    if i.KeyCode == Enum.KeyCode.Space then
+        if toggle == true then
+            plrbody = game.Players.LocalPlayer.Character.HumanoidRootPart
+            part = Instance.new("Part")
+
+            part.Parent = game.workspace
+            part.Position = plrbody.Position - Vector3.new(0, 2.4, 0)
+
+            part.Size = Vector3.new(2.5, 0.1, 2.5)
+            part.Anchored = true
+            part.Transparency = 1
+            wait(0.01)
+            part:Destroy()
+        end
+    end
+end)
+getgenv().toggle = false
+if state then
+toggle = true
+else
+toggle = false
+end
+end)
+
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
