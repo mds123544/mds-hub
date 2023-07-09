@@ -110,13 +110,27 @@ else
 end
 while task.wait() do
 	if _G.dribble then
-		game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("Football"):WaitForChild("Dribble"):FireServer()
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("Football"):WaitForChild("Dribble"):FireServer()
 	else
 	return
 	end
 end
 end)
 
+MovementSection:NewToggle("Auto run", "Auto run", function(state)
+if state then
+	_G.run = true
+else
+	_G.run = false
+end
+while task.wait() do
+    if _G.run then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 26
+    else
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    end
+end
+end)
 MovementSection1:NewDropdown("Left Team/Right Team", "Left Team/Right Team", {"Left (Home Team)", "Right (Away Team)"}, function(currentOptions)
 	if currentOptions == "Left (Home Team)" then
 		_G.team = game:GetService("Players").LocalPlayer.PlayerGui.Lobby.ChooseTeam.PickTeam.Layout.Main.Home.Title.Text
@@ -142,3 +156,11 @@ end)
 MovementSection2:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
         Library:ToggleUI()
 end)
+
+while task.wait() do
+    for i,v in pairs(game:GetService("Workspace").Characters.Stadium:GetDescendants()) do
+        if v.Name == "Cooldowns" and v.Parent.Name == game.Players.LocalPlayer.Name then
+            v:Destroy()
+        end
+    end
+end
