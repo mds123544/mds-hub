@@ -9,9 +9,22 @@ local MovementSection1 = BasicTab1:NewSection("Lobby")
 local MovementSection2 = BasicTab2:NewSection("OWNER/TOGGLE KEY")
 local MovementSection2 = BasicTab2:NewSection("Made by mds#0243")
 
-MovementSection:NewButton("Inf Stamina", "Inf Stamina", function()
-local u1 = game.Players.LocalPlayer
-u1.Character:SetAttribute("Stamina", u1.Character:GetAttribute("Stamina") + math.huge)
+MovementSection:NewToggle("Inf Stamina", "Inf Stamina", function(state)
+if state then
+	_G.sta = true
+else
+	_G.sta = false
+end
+while task.wait() do
+    if _G.sta then  
+        function a()
+            char.Character:SetAttribute("Stamina", char.Character:GetAttribute("Stamina") + math.huge)
+        end
+        pcall(function()
+            a()
+        end)
+    end
+end
 end)
 
 MovementSection:NewTextBox("Hitbox size", "player", function(txt)
