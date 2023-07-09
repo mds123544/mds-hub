@@ -1,0 +1,116 @@
+local char = game.Players.LocalPlayer
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Super League Soccer", "BloodTheme")
+local BasicTab = Window:NewTab("Game")
+local BasicTab2 = Window:NewTab("Credits")
+local MovementSection = BasicTab:NewSection("Game")
+local MovementSection2 = BasicTab2:NewSection("OWNER/TOGGLE KEY")
+local MovementSection2 = BasicTab2:NewSection("Made by mds#0243")
+
+MovementSection:NewTextBox("Hitbox size", "player", function(txt)
+	if tonumber(txt) then
+		_G.hitbox = txt
+	else
+	print("Please put number in")
+	end
+end)
+
+MovementSection:NewToggle("Auto Hitbox", "player", function(state)
+if state then
+	_G.tog = true
+else
+	_G.tog = false
+end
+
+while wait(0.1) do
+	if _G.tog and tonumber(_G.hitbox) then
+		for i,v in pairs(game.Workspace:GetDescendants()) do
+			if v.Name == "Hitbox" and v.Parent.Name == char.Name then
+				v.Transparency = 0.9
+				v.BrickColor = BrickColor.new("Bright red")
+				v.Size = Vector3.new(_G.hitbox, ((_G.hitbox / 3.5) + 8), _G.hitbox / 2)
+			end
+		end
+	else
+		for i,v in pairs(game.Workspace:GetDescendants()) do
+			if v.Name == "Hitbox" and v.Parent.Name == char.Name then
+				v.Transparency = 1
+				v.BrickColor = BrickColor.new("Bright red")
+				v.Size = Vector3.new(5, 8, 2)
+			end
+		end
+	end
+end
+
+end)
+
+MovementSection:NewTextBox("Hitbox size gk", "gk", function(txt1)
+	if tonumber(txt1) then
+		_G.hitboxgk = txt1
+	else
+	print("Please put number in")
+	end
+end)
+
+MovementSection:NewToggle("Auto Hitbox gk", "gk", function(state)
+if state then
+	_G.togg = true
+else
+	_G.togg = false
+end
+
+while wait(0.1) do
+	if _G.togg and tonumber(_G.hitboxgk) then
+		for i,v in pairs(game.Workspace:GetDescendants()) do
+			if v.Name == "InnerHitbox" and v.Parent.Name == char.Name then
+				v.Transparency = 0.9
+				v.BrickColor = BrickColor.new("Bright red")
+				v.Size = Vector3.new(_G.hitboxgk, 8, 0.001)
+			end
+		end
+	else
+		for i,v in pairs(game.Workspace:GetDescendants()) do
+			if v.Name == "InnerHitbox" and v.Parent.Name == char.Name then
+				v.Transparency = 1
+				v.BrickColor = BrickColor.new("Bright red")
+				v.Size = Vector3.new(6, 8, 0.001)
+			end
+		end
+	end
+end
+end)
+
+MovementSection:NewToggle("Auto tackle", "Auto tackle", function(state)
+if state then
+	_G.tackle = true
+else
+	_G.tackle = false
+end
+while task.wait() do
+	if _G.tackle then
+		game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("Football"):WaitForChild("Tackle"):FireServer()
+	else
+	return
+	end
+end
+end)
+
+MovementSection:NewToggle("Auto dribble", "Auto dribble", function(state)
+if state then
+	_G.dribble = true
+else
+	_G.dribble = false
+end
+while task.wait() do
+	if _G.dribble then
+		game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("Football"):WaitForChild("Dribble"):FireServer()
+	else
+	return
+	end
+end
+end)
+
+MovementSection2:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+        Library:ToggleUI()
+end)
+
