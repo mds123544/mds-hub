@@ -2,8 +2,10 @@ local char = game.Players.LocalPlayer
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Super League Soccer", "BloodTheme")
 local BasicTab = Window:NewTab("Game")
+local BasicTab1 = Window:NewTab("Lobby")
 local BasicTab2 = Window:NewTab("Credits")
 local MovementSection = BasicTab:NewSection("Game")
+local MovementSection1 = BasicTab1:NewSection("Lobby")
 local MovementSection2 = BasicTab2:NewSection("OWNER/TOGGLE KEY")
 local MovementSection2 = BasicTab2:NewSection("Made by mds#0243")
 
@@ -110,7 +112,29 @@ while task.wait() do
 end
 end)
 
+MovementSection1:NewDropdown("Left Team/Right Team", "Left Team/Right Team", {"Left (Home Team)", "Right (Away Team)"}, function(currentOptions)
+	if currentOptions == "Left (Home Team)" then
+		_G.team = game:GetService("Players").LocalPlayer.PlayerGui.Lobby.ChooseTeam.PickTeam.Layout.Main.Home.Title.Text
+	end
+	if currentOptions == "Right (Away Team)" then
+		_G.team = game:GetService("Players").LocalPlayer.PlayerGui.Lobby.ChooseTeam.PickTeam.Layout.Main.Away.Title.Text
+	end
+end)
+
+MovementSection1:NewDropdown("Position Pick", "Position Pick", {"CF", "LF", "RB", "LB", "CM", "GK", "RF"}, function(currentOption)
+    _G.pos = currentOption
+end)
+
+MovementSection1:NewButton("Choose System", "Choose System", function()
+	local args = {
+    [1] = _G.team,
+    [2] = _G.pos
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("COM"):WaitForChild("JoinTeam"):FireServer(unpack(args))
+
+end)
+
 MovementSection2:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
         Library:ToggleUI()
 end)
-
