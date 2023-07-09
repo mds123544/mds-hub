@@ -30,7 +30,7 @@ while wait(0.1) do
 			if v.Name == "Hitbox" and v.Parent.Name == char.Name then
 				v.Transparency = 0.9
 				v.BrickColor = BrickColor.new("Bright red")
-				v.Size = Vector3.new(_G.hitbox, ((_G.hitbox / 3.5) + 8), _G.hitbox / 2)
+				v.Size = Vector3.new(_G.hitbox, ((_G.hitbox / 2.5) + 8), _G.hitbox / 1.25)
 			end
 		end
 	else
