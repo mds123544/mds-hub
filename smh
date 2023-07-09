@@ -8,6 +8,7 @@ Support Game:
 - KILL MONSTER TO SAVE PRINCESS
 - TORNADO ALLEY ULTIMATE
 - TOWER OF HELL
+- SUPER LEAGUE SOCCER
 ]]
 
 local gameid = game.PlaceId
@@ -44,6 +45,9 @@ if gameid == 3582763398 then
 end
 if gameid == 5253186791 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tower%20of%20hell")))();
+end
+if gameid == 12177325772 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/super%20league%20soccer")))();
 end
 
 
