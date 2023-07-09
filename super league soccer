@@ -9,6 +9,11 @@ local MovementSection1 = BasicTab1:NewSection("Lobby")
 local MovementSection2 = BasicTab2:NewSection("OWNER/TOGGLE KEY")
 local MovementSection2 = BasicTab2:NewSection("Made by mds#0243")
 
+MovementSection:NewButton("Inf Stamina", "Inf Stamina", function()
+local u1 = game.Players.LocalPlayer
+u1.Character:SetAttribute("Stamina", u1.Character:GetAttribute("Stamina") + math.huge)
+end)
+
 MovementSection:NewTextBox("Hitbox size", "player", function(txt)
 	if tonumber(txt) then
 		_G.hitbox = txt
@@ -30,7 +35,7 @@ while wait(0.1) do
 			if v.Name == "Hitbox" and v.Parent.Name == char.Name then
 				v.Transparency = 0.9
 				v.BrickColor = BrickColor.new("Bright red")
-				v.Size = Vector3.new(_G.hitbox, ((_G.hitbox / 2.5) + 8), _G.hitbox / 1.25)
+				v.Size = Vector3.new(_G.hitbox, ((_G.hitbox / 3.5) + 8), _G.hitbox / 2)
 			end
 		end
 	else
@@ -132,7 +137,6 @@ MovementSection1:NewButton("Choose System", "Choose System", function()
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("COM"):WaitForChild("JoinTeam"):FireServer(unpack(args))
-
 end)
 
 MovementSection2:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
