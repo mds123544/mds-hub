@@ -49,5 +49,8 @@ end
 if gameid == 12177325772 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/super%20league%20soccer")))();
 end
+if gameid == 2413927524 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/the%20rake%20remastered")))();
+end
 
 
