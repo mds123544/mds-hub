@@ -1,0 +1,71 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Rake Remastered", "GrapeTheme")
+local Game = Window:NewTab("Game")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local Game = Game:NewSection("Game")
+local SettingSection = SettingsTab:NewSection("Change Settings")
+local CreditsSection = CreditsTab:NewSection("Developers || Mds")
+
+
+
+Game:NewToggle("Rake Esp", "Rake Esp", function(state)
+if state then
+    getgenv().rakeesp = true
+    else
+    getgenv().rakeesp = false
+end
+while task.wait() do
+    if rakeesp then
+        for i,v in pairs(game.Workspace:GetChildren()) do
+            if v.Name == "Rake" and not v:FindFirstChild("Highlight") then
+            local highlight = Instance.new("Highlight")
+            highlight.Parent = v
+            highlight.Adornee = v
+            highlight.FillColor = Color3.new(255, 255, 255)
+            highlight.OutlineColor = Color3.new(255, 255, 255)
+            highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+            highlight.FillTransparency = 0
+            highlight.OutlineTransparency = 0
+            end
+        end
+    else
+    for i,v in pairs(game.Workspace:GetChildren()) do
+        if v.Name == "Rake" and v:FindFirstChild("Highlight") then
+            v.Highlight:Destroy()
+        end
+    end
+    end
+end
+end)
+
+Game:NewToggle("Off Fog", "Off Fog", function(state)
+if state then
+    getgenv().fog = true
+    else
+    getgenv().fog = false
+end
+while task.wait() do
+    if fog then
+        game:GetService("ReplicatedStorage").CurrentLightingProperties.FogEnd.Value = 100000 -- off fog
+    else
+        game:GetService("ReplicatedStorage").CurrentLightingProperties.FogEnd.Value = 75 -- on fog
+    end
+end
+end)
+
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+power = Game:NewLabel("Current Power Percent: ")
+timeleft = Game:NewLabel("Time Remaining: ")
+while task.wait() do
+local curpow = game:GetService("ReplicatedStorage").PowerValues.PowerLevel.Value
+local maxpow = game:GetService("ReplicatedStorage").PowerValues.PowerLevel.MaxValue
+local percent = curpow/maxpow*100
+local time = game:GetService("ReplicatedStorage").Timer.Value
+local show = (string.sub(percent,1,4).."%")
+    power:UpdateLabel("Current Power Percent: "..show)
+    timeleft:UpdateLabel("Time Remaining: "..time)
+end
