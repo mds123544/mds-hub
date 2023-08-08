@@ -1,0 +1,92 @@
+local players = game:GetService('Players')
+local localPlayer = players.LocalPlayer
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Dingus", "GrapeTheme")
+local games = Window:NewTab("game")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local games = games:NewSection("game")
+local SettingSection = SettingsTab:NewSection("Change Settings")
+local CreditsSection = CreditsTab:NewSection("Developers || Mds")
+
+games:NewToggle("Auto doing task legit", "For Hider", function(state)
+if state then
+    getgenv().tasks = true
+    else
+    getgenv().tasks = false
+end
+while wait(0.1) do
+    if tasks then
+    local players = game:GetService('Players')
+    local localPlayer = players.LocalPlayer
+    local pos = localPlayer.Character.HumanoidRootPart.Position
+
+    for i,v in pairs(game.Workspace:WaitForChild("LoadedMap"):GetDescendants()) do
+        if v.Name == "EssentialTask" and v.BeamA.Brightness == 3 then
+            if (v.Position - pos).Magnitude < 4 then
+                fireproximityprompt(v.PromptHolder.ProximityPrompt)
+            end
+        end
+    end
+    end
+end
+end)
+
+games:NewToggle("Auto doing task unlegit", "For Hider, instantly", function(state)
+if state then
+    getgenv().taskss = true
+    else
+    getgenv().taskss = false
+end
+while wait(0.1) do
+    if taskss then
+    local players = game:GetService('Players')
+    local localPlayer = players.LocalPlayer
+    local pos = localPlayer.Character.HumanoidRootPart.Position
+
+    for i,v in pairs(game.Workspace:WaitForChild("LoadedMap"):GetDescendants()) do
+        if v.Name == "EssentialTask" and v.BeamA.Brightness == 3 then
+            if (v.Position - pos).Magnitude < 4 then
+                local args = {
+                [1] = v:GetAttributes().TaskID
+                }       
+                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("InvokeTaskCompleted"):InvokeServer(unpack(args))
+            end
+        end
+    end
+    end
+end
+end)
+
+games:NewToggle("Auto esp", "For Hunter", function(state)
+if state then
+    getgenv().esp = true
+    else
+    getgenv().esp = false
+end
+end)
+
+
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+while task.wait() do
+    pcall(function()
+    if esp then
+        for i,v in pairs(players:GetPlayers()) do
+            if v ~= localPlayer and v.Character:FindFirstChildOfClass('Highlight') then
+                v.Character.PlayerOutline.Enabled = true
+                v.Character.NameDisplay.Enabled = true
+            end
+        end
+    else
+        for i,v in pairs(players:GetPlayers()) do
+            if v ~= localPlayer and v.Character:FindFirstChildOfClass('Highlight') then
+                v.Character.PlayerOutline.Enabled = false
+                v.Character.NameDisplay.Enabled = false
+            end
+        end
+    end
+    end)
+end
