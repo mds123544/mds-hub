@@ -52,5 +52,8 @@ end
 if gameid == 2413927524 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/the%20rake%20remastered")))();
 end
-
+if gameid == 13924946576 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/dingus")))();
+end
+    
 
