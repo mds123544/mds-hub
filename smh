@@ -9,6 +9,8 @@ Support Game:
 - TORNADO ALLEY ULTIMATE
 - TOWER OF HELL
 - SUPER LEAGUE SOCCER
+- DINGUS
+- ARM WRESTLE SIMULATOR
 ]]
 
 local gameid = game.PlaceId
