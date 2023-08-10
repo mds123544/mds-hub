@@ -97,7 +97,7 @@ if state then
     else
     getgenv().hit = false
 end
-while wait(0.01) do
+while wait(0.15) do
 pcall(function()
 if hit then
 local ms = require(game:GetService("ReplicatedStorage").Controllers.PunchBagController)
