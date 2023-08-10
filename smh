@@ -55,5 +55,6 @@ end
 if gameid == 13924946576 then
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/dingus")))();
 end
-    
-
+if gameid == 13127800756 then
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/arm%20wrestle%20simulator")))();
+end
