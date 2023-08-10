@@ -97,8 +97,9 @@ if state then
     else
     getgenv().hit = false
 end
-while task.wait() do
-    if hit then
+while wait(0.2) do
+pcall(function()
+if hit then
 local ms = require(game:GetService("ReplicatedStorage").Controllers.PunchBagController)
 local S_ReplicatedStorage_1 = game:GetService("ReplicatedStorage")
 local u2 = require(S_ReplicatedStorage_1.Packages.Knit)
@@ -108,6 +109,7 @@ local v1 = u21.CurrentWall
 game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onUnequipRequest"):FireServer()
 u22.onDamagedWall:Fire(v1:GetAttribute("Zone"), v1.Parent.Parent.Name, v1.Name)
 end
+end)
 end
 end)
 
