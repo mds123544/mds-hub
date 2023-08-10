@@ -91,6 +91,23 @@ end)
 end
 end)
 
+wall:NewToggle("Auto Hit Wall", "Auto Hit Wall", function(state)
+if state then
+    getgenv().hit = true
+    else
+    getgenv().hit = false
+end
+while task.wait() do
+local ms = require(game:GetService("ReplicatedStorage").Controllers.PunchBagController)
+local S_ReplicatedStorage_1 = game:GetService("ReplicatedStorage")
+local u2 = require(S_ReplicatedStorage_1.Packages.Knit)
+u21 = u2.GetController("WallController")
+u22 = u2.GetService("WallService")
+local v1 = u21.CurrentWall
+u22.onDamagedWall:Fire(v1:GetAttribute("Zone"), v1.Parent.Parent.Name, v1.Name)
+end
+end)
+
 SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
