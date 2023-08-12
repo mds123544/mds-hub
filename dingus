@@ -1,7 +1,7 @@
 local players = game:GetService('Players')
 local localPlayer = players.LocalPlayer
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Dingus", "GrapeTheme")
+local Window = Library.CreateLib("Dingus", "BloodTheme")
 local games = Window:NewTab("game")
 local SettingsTab = Window:NewTab("Settings")
 local CreditsTab = Window:NewTab("Credits")
