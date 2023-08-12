@@ -1,27 +1,43 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Tornado Alley", "GrapeTheme")
-local gamesec = Window:NewTab("game")
+local gamesec = Window:NewTab("Game")
+local gamesecs = Window:NewTab("Player")
 local SettingsTab = Window:NewTab("Settings")
 local CreditsTab = Window:NewTab("Credits")
-local gamesec = gamesec:NewSection("game")
+local gamesec = gamesec:NewSection("Game")
+local gamesecs = gamesecs:NewSection("Player")
 local SettingSection = SettingsTab:NewSection("Change Settings")
 local CreditsSection = CreditsTab:NewSection("Developers || Mds")
 
-gamesec:NewButton("tp to key", "tp to key", function()
-for i,v in pairs(workspace:GetDescendants()) do
-if v.Name == "Shelter Key" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-end)
+getgenv().speed = 16
+getgenv().jump = 50
+
 gamesec:NewButton("tp to shelter", "tp to shelter", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").UndergroundShelter.Entrance.CFrame
 end)
-gamesec:NewSlider("Speed", "Speed", 200, 16, function(s)
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+gamesec:NewDropdown("Select Item", "Select Item Spawn On Map", {"Shelter Key", "Fire Extinguisher", "Bat", "Rubber Ducky", "Evil Ducky", "Sword", "Axe Sword", "Illumina", "Fear Sign", "Idol"}, function(Option)
+getgenv().item = Option
 end)
-gamesec:NewSlider("high jump", "high jump", 200, 50, function(s)
-game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+gamesec:NewButton("Get Selected Item", "Get Selected Item Spawn On Map", function()
+if game.Workspace:FindFirstChild(item) then
+local args = {
+    [1] = {
+        ["A"] = workspace:WaitForChild(item),
+        ["B"] = "Item",
+        ["reason"] = "Interact"
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("M6D"):FireServer(unpack(args))
+else
+print("No Item Found")
+end
+end)
+gamesecs:NewSlider("Speed", "Speed", 200, 16, function(s)
+getgenv().speed = s
+end)
+gamesecs:NewSlider("high jump", "high jump", 200, 50, function(s)
+getgenv().jump = s
 end)
 
 answer = gamesec:NewLabel("Tornado:  ")
@@ -30,11 +46,14 @@ SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyC
 	Library:ToggleUI()
 end)
 
-while wait(0.1) do
+while wait(0.01) do
+    pcall(function()
     for i,v in pairs(game.Workspace:GetDescendants()) do
         if v.Name == "BodyForce" and v ~= nil then
             answer:UpdateLabel("Tornado: "..v.Parent.Parent.Name)
         end
-        end
-        end
-
+    end
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = jump
+    end)
+end
