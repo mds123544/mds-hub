@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("LONGEST ANSWER WINS", "Ocean")
+local Window = Library.CreateLib("LONGEST ANSWER WINS", "BloodTheme")
 local GameList = Window:NewTab("Gameplay Section")
 local SettingsTab = Window:NewTab("Settings")
 local CreditsTab = Window:NewTab("Credits")
