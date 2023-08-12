@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Tower Of Hell", "GrapeTheme")
+local Window = Library.CreateLib("Tower Of Hell", "BloodTheme")
 local win = Window:NewTab("game")
 local SettingsTab = Window:NewTab("Settings")
 local CreditsTab = Window:NewTab("Credits")
