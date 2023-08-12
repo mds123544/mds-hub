@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Rake Remastered", "GrapeTheme")
+local Window = Library.CreateLib("BloodTheme", "GrapeTheme")
 local Game = Window:NewTab("Game")
 local SettingsTab = Window:NewTab("Settings")
 local CreditsTab = Window:NewTab("Credits")
