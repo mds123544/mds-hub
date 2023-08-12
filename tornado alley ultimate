@@ -9,9 +9,6 @@ local gamesecs = gamesecs:NewSection("Player")
 local SettingSection = SettingsTab:NewSection("Change Settings")
 local CreditsSection = CreditsTab:NewSection("Developers || Mds")
 
-getgenv().speed = 16
-getgenv().jump = 50
-
 gamesec:NewButton("tp to shelter", "tp to shelter", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").UndergroundShelter.Entrance.CFrame
 end)
@@ -33,11 +30,20 @@ else
 print("No Item Found")
 end
 end)
+
 gamesecs:NewSlider("Speed", "Speed", 200, 16, function(s)
-getgenv().speed = s
+getgenv().ab = true
+getgenv().speeds = s
 end)
-gamesecs:NewSlider("high jump", "high jump", 200, 50, function(s)
-getgenv().jump = s
+
+gamesecs:NewSlider("high jump", "high jump", 200, 50, function(s1)
+getgenv().ba = true
+getgenv().jumps = s1
+end)
+
+gamesecs:NewButton("Reset", "Reset", function()
+getgenv().ab = false
+getgenv().ba = false
 end)
 
 answer = gamesec:NewLabel("Tornado:  ")
@@ -48,12 +54,16 @@ end)
 
 while wait(0.01) do
     pcall(function()
+    if ab then
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speeds
+    end
+    if ba then
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumps
+    end
     for i,v in pairs(game.Workspace:GetDescendants()) do
         if v.Name == "BodyForce" and v ~= nil then
             answer:UpdateLabel("Tornado: "..v.Parent.Parent.Name)
         end
     end
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = jump
     end)
 end
