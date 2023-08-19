@@ -1,0 +1,122 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Arm Wrestle Simulator", "BloodTheme")
+local ingame = Window:NewTab("Game")
+local wall = Window:NewTab("Walls")
+local SettingsTab = Window:NewTab("Settings")
+local CreditsTab = Window:NewTab("Credits")
+local ingame = ingame:NewSection("Game")
+local wall = wall:NewSection("Walls")
+local SettingSection = SettingsTab:NewSection("Change Settings")
+local CreditsSection = CreditsTab:NewSection("Developers || Mds0243")
+
+ingame:NewDropdown("Select World", "Select World", {"World 1", "World 2", "World 3", "World 4", "World 5"}, function(Options)
+getgenv().world = Options
+end)
+
+ingame:NewButton("Tp To World", "Tp To World", function()
+if world == "World 1" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones["1"].Interactables.Teleports.Locations.BackToSchool.CFrame
+end
+if world == "World 2" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones["2"].Interactables.Teleports.Locations.Futuristic.CFrame
+end
+if world == "World 3" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones["3"].Interactables.Teleports.Locations.Beach.CFrame + Vector3.new(0,5,0)
+end
+if world == "World 4" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones["4"].Interactables.Teleports.Locations.NuclearBunker.CFrame
+end
+if world == "World 5" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones["5"].Interactables.Teleport.Locations.DinoWorld.CFrame
+end
+end)
+
+ingame:NewToggle("Auto Fire Click Remote", "Auto Fire Click Remote", function(state)
+if state then
+    getgenv().click = true
+    else
+    getgenv().click = false
+end
+while task.wait() do
+    if click then
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onClick"):FireServer()
+
+    end
+end    
+end)
+
+wall:NewDropdown("Select Wall", "Select Wall", {"Tier1", "Tier2", "Tier3", "Tier4"}, function(Option)
+getgenv().walltier = Option
+end)
+
+wall:NewToggle("Auto Tp To Wall", "Auto Tp To Wall", function(state)
+if state then
+    getgenv().auto = true
+    else
+    getgenv().auto = false
+end
+
+while task.wait() do
+pcall(function()
+local Players = game:GetService('Players')
+local player = Players.LocalPlayer
+
+local function getClosestPartInModel(model)
+
+local character = player.Character
+local root = character and character.PrimaryPart
+if root == nil then return end
+
+local studs = math.huge
+local part;
+    for _, obj in ipairs(model:GetDescendants()) do
+        if obj:IsA('BasePart') then
+            local distance = (root.Position - obj.Position).Magnitude
+            if distance < studs then
+                studs = distance
+                part = obj
+            end
+        end
+    end
+    return part
+end
+if auto then
+if getClosestPartInModel(game:GetService("Workspace").Zones["5"].Interactables.Training.Walls:FindFirstChild(walltier).Wall) ~= nil then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getClosestPartInModel(game:GetService("Workspace").Zones["5"].Interactables.Training.Walls:FindFirstChild(walltier).Wall).CFrame - Vector3.new(4,8,0)
+else
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones["5"].Interactables.Training.Walls:FindFirstChild(walltier).WinnerBlock.CFrame
+end
+end
+end)
+end
+end)
+
+wall:NewToggle("Auto Hit Wall", "Auto Hit Wall", function(state)
+if state then
+    getgenv().hit = true
+    else
+    getgenv().hit = false
+end
+while wait(0.15) do
+pcall(function()
+if hit then
+local ms = require(game:GetService("ReplicatedStorage").Controllers.PunchBagController)
+local S_ReplicatedStorage_1 = game:GetService("ReplicatedStorage")
+local u2 = require(S_ReplicatedStorage_1.Packages.Knit)
+u21 = u2.GetController("WallController")
+u22 = u2.GetService("WallService")
+local v1 = u21.CurrentWall
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onUnequipRequest"):FireServer()
+u22.onDamagedWall:Fire(v1:GetAttribute("Zone"), v1.Parent.Parent.Name, v1.Name)
+end
+end)
+end
+end)
+
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+SettingSection:NewButton("Anti Afk Gui", "Anti Afk Gui", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/RTrade/Voidz/main/AntiAFK.lua'),true))()
+end)
