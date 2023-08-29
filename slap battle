@@ -1,5 +1,6 @@
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Slap Battle ULTITY", "BloodTheme")
+local Window = Library.CreateLib(GameName, "BloodTheme")
 local BasicTab = Window:NewTab("Game")
 local BasicTab2 = Window:NewTab("Credits")
 local MovementSection = BasicTab:NewSection("Game")
