@@ -1,5 +1,6 @@
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Arm Wrestle Simulator", "BloodTheme")
+local Window = Library.CreateLib(GameName, "BloodTheme")
 local ingame = Window:NewTab("Game")
 local wall = Window:NewTab("Walls")
 local SettingsTab = Window:NewTab("Settings")
