@@ -1,7 +1,8 @@
 local players = game:GetService('Players')
 local localPlayer = players.LocalPlayer
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Dingus", "BloodTheme")
+local Window = Library.CreateLib(GameName, "BloodTheme")
 local games = Window:NewTab("game")
 local SettingsTab = Window:NewTab("Settings")
 local CreditsTab = Window:NewTab("Credits")
