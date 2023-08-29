@@ -10,53 +10,80 @@ Supported Game:
 - TOWER OF HELL
 - SUPER LEAGUE SOCCER
 - DINGUS
-- ARM WRESTLE SIMULATOR
 ]]
 
 local gameid = game.PlaceId
+local games = {
+    ["SLAP BATTLE"] = {
+        ["Id"] = 6403373529,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/slap%20battle"
+    },
+    ["BOOM CLICK MINE"] = {
+        ["Id"] = 12941479903,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/Boom%20click%20mine"
+    },
+    ["CART RIDE INTO RDITE"] = {
+        ["Id"] = 4913581664,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/Cart%20Ride%20into%20Rdite"
+    },
+    ["LUCKY BLOCKS BATTLEGROUNDS"] = {
+        ["Id"] = 662417684,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/LUCKY%20BLOCKS%20Battlegrounds"
+    },
+    ["LONGEST ANSWER WINS"] = {
+        ["Id"] = 9992339729,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/Longest%20Answer%20Wins"
+    },
+    ["KILL MONSTER TO SAVE PRINCESS"] = {
+        ["Id"] = 8568266872,
+        ["Id2"] = 12538889612,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/kill%20monster%20to%20save%20princess"
+    },
+    ["TORNADO ALLEY ULTIMATE"] = {
+        ["Id"] = 2313058949,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/tornado%20alley%20ultimate"
+    },
+    ["TOWER OF HELL"] = {
+        ["Id"] = 1962086868,
+        ["Id2"] = 3582763398,
+        ["Id3"] = 5253186791,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/tower%20of%20hell"
+    },
+    ["SUPER LEAGUE SOCCER"] = {
+        ["Id"] = 12177325772,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/super%20league%20soccer"
+    },
+    ["THE RAKE REMASTERED"] = {
+        ["Id"] = 2413927524,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/the%20rake%20remastered"
+    },
+    ["DINGUS"] = {
+        ["Id"] = 13924946576,
+        ["Id2"] = nil,
+        ["Id3"] = nil,
+        ["Load"] = "https://raw.githubusercontent.com/mds123544/mds-hub/main/dingus"
+    },
+}
+for _,v in pairs(games) do
+    if gameid == v.Id or gameid == v.Id2 or gameid == v.Id3 then
+        loadstring(game:HttpGet(v.Load))()
+    end
+end
 
-if gameid == 6403373529 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/slap%20battle")))();
-end
-if gameid == 12941479903 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Boom%20click%20mine")))();
-end
-if gameid == 4913581664 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Cart%20Ride%20into%20Rdite")))();
-end
-if gameid == 662417684 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/LUCKY%20BLOCKS%20Battlegrounds")))();
-end
-if gameid == 9992339729 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/Longest%20Answer%20Wins")))();
-end
-if gameid == 8568266872 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/kill%20monster%20to%20save%20princess")))();
-end
-if gameid == 12538889612 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/kill%20monster%20to%20save%20princess")))();
-end
-if gameid == 2313058949 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tornado%20alley%20ultimate")))();
-end
-if gameid == 1962086868 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tower%20of%20hell")))();
-end
-if gameid == 3582763398 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tower%20of%20hell")))();
-end
-if gameid == 5253186791 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/tower%20of%20hell")))();
-end
-if gameid == 12177325772 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/super%20league%20soccer")))();
-end
-if gameid == 2413927524 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/the%20rake%20remastered")))();
-end
-if gameid == 13924946576 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/dingus")))();
-end
-if gameid == 13127800756 then
-    loadstring(game:HttpGet(("https://raw.githubusercontent.com/mds123544/mds-hub/main/arm%20wrestle%20simulator")))();
-end
