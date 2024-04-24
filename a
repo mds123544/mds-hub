@@ -2,57 +2,23 @@ local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
 local Window = Library.CreateLib("", "GrapeTheme")
 local gamesec = Window:NewTab("game")
 local CreditsTab = Window:NewTab("Credits")
-local gamesec = gamesec:NewSection("game")
 local SettingSection = SettingsTab:NewSection("Change Settings")
+local gamesec = gamesec:NewSection("game")
 local CreditsSection = CreditsTab:NewSection("Developers || Mds")
+local SettingSection = SettingsTab:NewSection("Change Settings")
 
 getgenv().WalkSpeed = 16
-getgenv().JumpPower = 50
 
 gamesec:NewButton("Instant kill", "Instant kill", function()
     loadstring(game:HttpGet("https://scriptblox.com/raw/Murderers-VS-Sheriffs-Duels-Fastest-Auto-Farm-GUI-7659"))()
 end)
 
 gamesec:NewSlider("Walk speed", "Walk speed", 200, 16, function(s)
-    getgenv().WalkSpeed = 16 = s
-end)
-gamesec:NewSlider("Jump power", "Jump power", 200, 50, function(j)
-    getgenv().JumpPower = 50 = j
+    getgenv().WalkSpeed  = s
 end)
 
-while true do
-    wait(0)
-     local char = game.Players.LocalPlayer.Character
-        if char:FindFirstChild("Humanoid") ~= nil then
-            function Char()
-            function hum(ws,jp)
-                game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
-                game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
-            end
-            local mt = getrawmetatable(game);
-            local old = mt.index;
-            setreadonly(mt, false)
-
-            mt.index = function(parent, value)
-            if tostring(parent) == "Humanoid" and tostring(value) == "WalkSpeed" or tostring(parent) == "Humanoid" and tostring(value) == "JumpPower" then
-                return 16;
-                end
-            return old(parent, value)
-            end
-            setreadonly(mt,true)
-
-            hum(WalkSpeed,JumpPower)
-        end
-        Char()
-    end
-end
-
-gamesec:NewSlider("Hitbox size", "Hitbox size", 0, 100, function(si)
-    getgenv().Size = si
-end)
-
-gamesec:NewSlider("Hitbox transparency", "Hitbox transparency", 0, 1, function(t)
-    getgenv().Trans = t
+gamesec:NewSlider("Hitbox size", "Hitbox size", 0, 50, function(s)
+    _G.Size = s
 end)
 
 gamesec:NewToggle("Toogle Hitbox", "Toogle Hitbox", function(state)
@@ -66,8 +32,8 @@ gamesec:NewToggle("Toogle Hitbox", "Toogle Hitbox", function(state)
             for i,v in next, game:GetService('Players'):GetPlayers() do
                 if v.Name ~= game:GetService('Players').LocalPlayer.Name then
                     pcall(function()
-                    v.Character.HumanoidRootPart.Size = Vector3.new(Size,Size,Size)
-                    v.Character.HumanoidRootPart.Transparency = (1-Trans)
+                    v.Character.HumanoidRootPart.Size = Vector3.new(_G.Size,_G.Size,_G.Size)
+                    v.Character.HumanoidRootPart.Transparency = 0.85
                     v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Bright red")
                     v.Character.HumanoidRootPart.Material = "Neon"
                     v.Character.HumanoidRootPart.CanCollide = false
@@ -89,3 +55,34 @@ gamesec:NewToggle("Toogle Hitbox", "Toogle Hitbox", function(state)
         end
     end
 end)
+
+SettingSection:NewKeybind("Toggle UI", "Toggle key to enable/off gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+while true do
+    wait(0)
+     local char = game.Players.LocalPlayer.Character
+        if char:FindFirstChild("Humanoid") ~= nil then
+            function Char()
+            function hum(ws,jp)
+                game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
+                game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
+            end
+            local mt = getrawmetatable(game);
+            local old = mt.index;
+            setreadonly(mt, false)
+  
+            mt.index = function(parent, value)
+            if tostring(parent) == "Humanoid" and tostring(value) == "WalkSpeed" or tostring(parent) == "Humanoid" and tostring(value) == "JumpPower" then
+                return 16;
+                end
+            return old(parent, value)
+            end
+            setreadonly(mt,true)
+  
+            hum(WalkSpeed,JumpPower)
+        end
+        Char()
+    end
+end
