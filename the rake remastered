@@ -40,13 +40,47 @@ while task.wait() do
 end
 end)
 
+Game:NewToggle("Player Esp", "Player Esp", function(statee)
+if statee then
+    getgenv().esp = true
+    else
+    getgenv().esp = false
+end
+while task.wait() do
+    if esp then
+		pcall(function()
+			for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+				if v.name ~= game:GetService("Players").LocalPlayer.name and not game:GetService("Workspace"):FindFirstChild(v.name):FindFirstChild("Highlight") then
+					local highlight = Instance.new("Highlight")
+					highlight.Parent = game:GetService("Workspace"):FindFirstChild(v.name)
+					highlight.Adornee = game:GetService("Workspace"):FindFirstChild(v.name)
+					highlight.FillColor = Color3.new(255, 255, 255)
+					highlight.OutlineColor = Color3.new(255, 255, 255)
+					highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+					highlight.FillTransparency = 0
+					highlight.OutlineTransparency = 0
+				end
+			end
+		end)
+    else
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			pcall(function()
+				if v.name ~= game:GetService("Players").LocalPlayer.name then
+					game:GetService("Workspace"):FindFirstChild(v.name):FindFirstChild("Highlight"):Destroy()
+				end
+			end)
+		end
+	end
+end
+end)
+
 Game:NewToggle("Off Fog", "Off Fog", function(state)
 if state then
     getgenv().fog = true
     else
     getgenv().fog = false
 end
-while task.wait() do
+while task.wait(0.1) do
     if fog then
         game:GetService("ReplicatedStorage").CurrentLightingProperties.FogEnd.Value = 100000 -- off fog
     else
