@@ -18,23 +18,27 @@ if state then
 end
 while task.wait() do
     if rakeesp then
-        for i,v in pairs(game.Workspace:GetChildren()) do
-            if v.Name == "Rake" and not v:FindFirstChild("Highlight") then
-            local highlight = Instance.new("Highlight")
-            highlight.Parent = v
-            highlight.Adornee = v
-            highlight.FillColor = Color3.new(255, 255, 255)
-            highlight.OutlineColor = Color3.new(255, 255, 255)
-            highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-            highlight.FillTransparency = 0
-            highlight.OutlineTransparency = 0
-            end
-        end
+		pcall(function()
+			for i,v in pairs(game.Workspace:GetChildren()) do
+				if v.Name == "Rake" and not v:FindFirstChild("Highlight") then
+				local highlight = Instance.new("Highlight")
+				highlight.Parent = v
+				highlight.Adornee = v
+				highlight.FillColor = Color3.new(255, 255, 255)
+				highlight.OutlineColor = Color3.new(255, 255, 255)
+				highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				highlight.FillTransparency = 0
+				highlight.OutlineTransparency = 0
+				end
+			end
+		end)
     else
     for i,v in pairs(game.Workspace:GetChildren()) do
-        if v.Name == "Rake" and v:FindFirstChild("Highlight") then
-            v.Highlight:Destroy()
-        end
+		pcall(function()
+			if v.Name == "Rake" and v:FindFirstChild("Highlight") then
+				v.Highlight:Destroy()
+			end
+		end)
     end
     end
 end
@@ -74,8 +78,8 @@ while task.wait() do
 end
 end)
 
-Game:NewToggle("Off Fog", "Off Fog", function(state)
-if state then
+Game:NewToggle("Off Fog", "Off Fog", function(statez)
+if statez then
     getgenv().fog = true
     else
     getgenv().fog = false
